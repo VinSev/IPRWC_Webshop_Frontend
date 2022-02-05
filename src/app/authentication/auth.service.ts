@@ -1,9 +1,70 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {User} from "./user.model";
+import {environment} from "../../environments/environment";
+import {ToastrService} from "ngx-toastr";
+import {NotificationService} from "../notification/notification.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private _user: User = User._emptyUser;
 
-  constructor() { }
+  constructor(private http: HttpClient,
+              private notificationService: NotificationService) { }
+
+  public get user(): User {
+    return this._user;
+  }
+
+  public set user(user: User) {
+    this._user = user;
+  }
+
+  public login(email: string, password: string): Observable<AuthResponse> {
+    let authRequest: AuthRequest = { email, password };
+    return this.http
+      .post<AuthResponse>(environment.baseURL + "/auth/login", authRequest);
+  }
+
+  public register(email: string, password: string): Observable<User> {
+    return this.http
+      .post<User>(`${environment.baseURL}/users/register`, { email, password })
+  }
+
+  public logout(): void {
+    this.notificationService.toastrSuccess("Logout successful");
+    localStorage.removeItem("token");
+  }
+
+  public isLoggedIn(): boolean {
+    return !!localStorage.getItem("token");
+  }
+
+  public getToken(): string | null {
+    return localStorage.getItem("token");
+  }
+
+  public hasAuthority(_role: string): boolean {
+    for (let role of this._user.roles) {
+      if(role.toUpperCase() == _role.toUpperCase()) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
+
+type AuthRequest = {
+  email: string,
+  password: string
+}
+
+type AuthResponse = {
+  user: User,
+  token: string
+}
+
+

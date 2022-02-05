@@ -3,22 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {AuthenticationModule} from "./authentication/authentication.module";
 import {HeaderModule} from "./header/header.module";
 import {ProductsModule} from "./products/products.module";
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {TokenInterceptorService} from "./authentication/interceptor/token-interceptor.service";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    AuthenticationModule,
     HeaderModule,
-    ProductsModule
+    ProductsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
