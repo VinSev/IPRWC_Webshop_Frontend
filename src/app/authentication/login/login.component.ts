@@ -10,7 +10,7 @@ import {NotificationService} from "../../notification/notification.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnDestroy {
-  private subscription?: Subscription;
+  private subscription!: Subscription;
 
   constructor(private authService: AuthService,
               private router: Router,

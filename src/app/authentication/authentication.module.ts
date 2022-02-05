@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthenticationComponent } from './authentication.component';
 import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -21,7 +22,8 @@ import {RouterModule} from "@angular/router";
         pathMatch: "full",
         component: AuthenticationComponent
       }
-    ])
+    ]),
+    FormsModule
   ]
 })
 export class AuthenticationModule { }

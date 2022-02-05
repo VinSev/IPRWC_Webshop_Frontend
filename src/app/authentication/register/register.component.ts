@@ -9,7 +9,7 @@ import {NotificationService} from "../../notification/notification.service";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnDestroy {
-  private subscription?: Subscription;
+  private subscription!: Subscription;
 
   constructor(private authService: AuthService,
               private notificationService: NotificationService) {
