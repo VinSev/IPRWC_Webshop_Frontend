@@ -20,8 +20,4 @@ export class User {
   set roles(value: string[]) {
     this._roles = value;
   }
-
-  get emptyUser(): User {
-    return User._emptyUser;
-  }
 }

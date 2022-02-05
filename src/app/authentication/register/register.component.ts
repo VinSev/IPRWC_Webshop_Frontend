@@ -1,8 +1,6 @@
 import {Component, OnDestroy} from '@angular/core';
 import {Subscription} from "rxjs";
 import {AuthService} from "../auth.service";
-import {Router} from "@angular/router";
-import {ToastrService} from "ngx-toastr";
 import {NotificationService} from "../../notification/notification.service";
 
 @Component({

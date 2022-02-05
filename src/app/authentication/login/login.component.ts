@@ -2,7 +2,6 @@ import {Component, OnDestroy} from '@angular/core';
 import { AuthService } from "../auth.service";
 import {Router} from "@angular/router";
 import {Subscription} from "rxjs";
-import {ToastrService} from "ngx-toastr";
 import {NotificationService} from "../../notification/notification.service";
 
 @Component({

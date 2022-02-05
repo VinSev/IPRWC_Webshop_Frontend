@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {User} from "./user.model";
 import {environment} from "../../environments/environment";
-import {ToastrService} from "ngx-toastr";
 import {NotificationService} from "../notification/notification.service";
 
 @Injectable({
