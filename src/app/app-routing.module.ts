@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ProductsComponent} from "./products/products.component";
 import {IsLoggedInGuard} from "./authentication/guard/is-logged-in.guard";
 
 const routes: Routes = [
@@ -9,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'products',
-    component: ProductsComponent
+    loadChildren: () => import("./products/products.module").then(m => m.ProductsModule)
   },
   // { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'login',
