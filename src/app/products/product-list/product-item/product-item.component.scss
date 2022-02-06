@@ -1,0 +1,22 @@
+.overlay {
+  opacity: 0;
+  top: 10%;
+  margin-left: 0;
+  width: 70px;
+  transition: 0.33s;
+}
+
+.card-img-container:hover .overlay {
+  opacity: 1;
+  margin-left: 5%;
+}
+
+.overlay button {
+  background-color: white;
+  width: 44px;
+}
+
+.overlay fa-icon {
+  background-color: white;
+  color: black;
+}

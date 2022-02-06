@@ -4,6 +4,7 @@ import { ProductsComponent } from './products.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductItemComponent } from './product-list/product-item/product-item.component';
 import {RouterModule} from "@angular/router";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 
@@ -13,15 +14,16 @@ import {RouterModule} from "@angular/router";
     ProductListComponent,
     ProductItemComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: "",
-        pathMatch: "full",
-        component: ProductsComponent
-      }
-    ])
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: "",
+                pathMatch: "full",
+                component: ProductsComponent
+            }
+        ]),
+        FontAwesomeModule
+    ]
 })
 export class ProductsModule { }
