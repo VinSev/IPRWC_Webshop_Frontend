@@ -1,3 +1,5 @@
+//@import "src/styles.scss";
+
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap');
 
 * {
@@ -5,21 +7,27 @@
   transition: 0.15s;
 }
 
-button:hover .fa-heart {
-  color: red;
-}
+@mixin button {
+  button {
+    background-color: white !important;
+    width: 44px;
+    transition: 0.3s !important;
+    border: 1px solid darkgray !important;
+    border-radius: 3px;
+    color: black !important;
+    text-align: center;
+  }
 
-button {
-  background-color: white !important;
-  width: 44px;
-  transition: 0.3s !important;
-}
+  button:hover {
+    background-color: lightgray !important;
+  }
 
-button:hover {
-  background-color: lightgray !important;
-}
+  fa-icon {
+    background-color: transparent;
+    color: black;
+  }
 
-fa-icon {
-  background-color: transparent;
-  color: black;
+  button:hover .fa-heart {
+    color: red;
+  }
 }

@@ -7,6 +7,7 @@ import {NotificationService} from "../notification/notification.service";
 })
 export class ShoppingCartService {
   private _products: Product[] = [];
+  private _shippingCost: number = 10;
 
   constructor(private notificationService: NotificationService) { }
 
@@ -16,6 +17,14 @@ export class ShoppingCartService {
 
   public set products(value: Product[]) {
     this._products = value;
+  }
+
+  get shippingCost(): number {
+    return this._shippingCost;
+  }
+
+  set shippingCost(value: number) {
+    this._shippingCost = value;
   }
 
   public add(product: Product): void {
@@ -46,8 +55,13 @@ export class ShoppingCartService {
       this.notificationService.toastrWarning("Item does not exist in Cart");
       return;
     }
-    this.notificationService.toastrInfo("Product Removed from Cart");
-    this._products.splice(index, 1);
+    this.notificationService.confirmationDelete("Are you sure you want to delete this product?", "Delete Product")
+      .then(result => {
+        if(result.value) {
+          this.notificationService.toastrInfo("Product Removed from Cart");
+          this._products.splice(index, 1);
+        }
+      });
   }
 
   public isEmpty(): boolean {
@@ -60,6 +74,14 @@ export class ShoppingCartService {
       totalAmount += product.amount;
     });
     return totalAmount;
+  }
+
+  public getTotalPrice(): number {
+    let totalPrice: number = 0;
+    this._products.forEach(product => {
+      totalPrice += product.price * product.amount;
+    });
+    return totalPrice + this.shippingCost;
   }
 
   public clear(): void {

@@ -1,12 +1,41 @@
+<h2 class="py-4 font-weight-bold">Cart ({{shoppingCartService.getTotalAmountOfProducts()}} items)</h2>
 <div class="row">
-  <h2 class="py-4 font-weight-bold">Cart ({{shoppingCartService.getTotalAmountOfProducts()}} items)</h2>
-  <div class="col-11 col-md-12 col-lg-8 mb-lg-0 mb-5">
-    <div class="row" *ngFor="let product of products">
+  <div class="col-12 col-md-12 col-lg-8 mb-lg-0 mb-5">
+    <div *ngFor="let product of products">
       <app-shopping-cart-item [product]="product"></app-shopping-cart-item>
     </div>
-    <div class="row px-2" *ngIf="products?.length == 0">
+
+    <div class="px-2" *ngIf="products?.length == 0">
       <p class="p-0">Your Shopping Cart is empty</p>
       <button class="w-auto" routerLink="../products">Go Shopping</button>
     </div>
   </div>
+
+  <div class="col-12 col-md-12 col-lg-4 mb-lg-0 mb-5">
+    <div class="card px-2">
+      <div class="card-body">
+        <div class="card-title">
+          <h5>Order</h5>
+        </div>
+        <div class="card-text">
+          <ul class="list-unstyled">
+            <li class="d-flex justify-content-between">
+              <p>Product Amount:</p>
+              <p>{{shoppingCartService.getTotalPrice() - shoppingCartService.shippingCost | currency}}</p>
+            </li>
+            <li class="d-flex justify-content-between">
+              <p>Shipping costs:</p>
+              <p>{{shoppingCartService.shippingCost | currency}}</p>
+            </li>
+            <li class="d-flex justify-content-between mt-2">
+              <p class="fw-bold">Total costs:</p>
+              <p>{{shoppingCartService.getTotalPrice() | currency}}</p>
+            </li>
+          </ul>
+          <button class="w-auto button">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
