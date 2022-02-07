@@ -15,7 +15,8 @@ button:hover .fa-heart {
 
   button {
     background-color: white !important;
-    width: 44px;
+    min-width: 44px;
+    width: auto;
     transition: 0.3s !important;
     border: 1px solid darkgray !important;
     border-radius: 3px;
@@ -24,7 +25,15 @@ button:hover .fa-heart {
   }
 
   button:hover {
-    background-color: lightgray !important;
+    background-color: #ededed !important;
+  }
+
+  button:disabled {
+    opacity: 0.54;
+  }
+
+  button:hover:disabled {
+    background-color: inherit !important;
   }
 
   fa-icon {
