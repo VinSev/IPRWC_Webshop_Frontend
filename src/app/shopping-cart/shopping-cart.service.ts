@@ -19,11 +19,11 @@ export class ShoppingCartService {
     this._products = value;
   }
 
-  get shippingCost(): number {
+  public get shippingCost(): number {
     return this._shippingCost;
   }
 
-  set shippingCost(value: number) {
+  public set shippingCost(value: number) {
     this._shippingCost = value;
   }
 

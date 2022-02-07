@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from "@angular/router";
 import {WishlistComponent} from "./wishlist.component";
+import { WishlistListComponent } from './wishlist-list/wishlist-list.component';
+import { WishlistItemComponent } from './wishlist-list/wishlist-item/wishlist-item.component';
 
 
 
 @NgModule({
   declarations: [
-    WishlistComponent
+    WishlistComponent,
+    WishlistListComponent,
+    WishlistItemComponent
   ],
   imports: [
     CommonModule,
