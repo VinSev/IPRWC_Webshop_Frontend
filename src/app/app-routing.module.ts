@@ -13,6 +13,9 @@ const routes: Routes = [
   { path: 'shopping-cart',
     loadChildren: () => import("./shopping-cart/shopping-cart.module").then(m => m.ShoppingCartModule)
   },
+  { path: 'wishlist',
+    loadChildren: () => import("./wishlist/wishlist.module").then(m => m.WishlistModule)
+  },
   { path: 'login',
     loadChildren: () => import("./authentication/authentication.module").then(m => m.AuthenticationModule),
     canActivate: [IsLoggedInGuard]

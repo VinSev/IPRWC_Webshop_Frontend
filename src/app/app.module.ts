@@ -8,9 +8,10 @@ import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptorService} from "./authentication/interceptor/token-interceptor.service";
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     HttpClientModule,
