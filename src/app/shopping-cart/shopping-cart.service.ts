@@ -47,7 +47,7 @@ export class ShoppingCartService {
       return;
     }
     this.notificationService.toastrInfo("Product Removed from Cart");
-    this._products.splice(index);
+    this._products.splice(index, 1);
   }
 
   public isEmpty(): boolean {

@@ -3,6 +3,10 @@
   <div class="col-11 col-md-12 col-lg-8 mb-lg-0 mb-5">
     <div class="row" *ngFor="let product of products">
       <app-shopping-cart-item [product]="product"></app-shopping-cart-item>
-   </div>
+    </div>
+    <div class="row px-2" *ngIf="products?.length == 0">
+      <p class="p-0">Your Shopping Cart is empty</p>
+      <button class="w-auto" routerLink="../products">Go Shopping</button>
+    </div>
   </div>
 </div>
