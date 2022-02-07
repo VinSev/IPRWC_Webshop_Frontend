@@ -16,12 +16,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav ms-auto text-center">
       <li class="nav-item">
-        <a class="nav-link" routerLink="products" routerLinkActive="active">Products</a>
+        <a class="nav-link" routerLink="products" routerLinkActive="active">
+          Products
+        </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="shopping-cart" routerLinkActive="active">
-          Shopping Cart
+        <a class="nav-link" routerLink="shopping-cart" title="Shopping Cart" routerLinkActive="active">
+          <fa-icon [icon]="faShoppingCart"></fa-icon>
+          <div class="badge bg-danger">{{shoppingCartService.getTotalAmountOfProducts()}}</div>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="wishlist" title="Whishlist" routerLinkActive="active">
+          <fa-icon [icon]="faHeart"></fa-icon>
           <div class="badge bg-danger">{{shoppingCartService.getTotalAmountOfProducts()}}</div>
         </a>
       </li>
