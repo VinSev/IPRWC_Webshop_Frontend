@@ -7,7 +7,7 @@
   transition: 0.15s;
 }
 
-button:hover .fa-heart {
+button:hover .fa-heart, a:hover .fa-heart {
   color: red !important;
 }
 
