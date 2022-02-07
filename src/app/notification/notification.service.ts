@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ToastrService} from "ngx-toastr";
 import Swal, {SweetAlertResult} from "sweetalert2";
-import {faCheck} from "@fortawesome/free-solid-svg-icons";
+import {Product} from "../products/product.model";
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +54,9 @@ export class NotificationService {
       confirmButtonText: "Yes",
       cancelButtonText: "No"
     });
+  }
+
+  public viewProduct(product: Product): void {
+    console.log("View Product")
   }
 }
