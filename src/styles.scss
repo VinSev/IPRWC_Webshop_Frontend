@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap');
+
+* {
+  font-family: 'Mulish', sans-serif;
+  transition: 0.15s;
+}
+
+button:hover .fa-heart {
+  color: red;
+}
+
+button {
+  background-color: white !important;
+  width: 44px;
+  transition: 0.3s !important;
+}
+
+button:hover {
+  background-color: lightgray !important;
+}
+
+fa-icon {
+  background-color: transparent;
+  color: black;
+}

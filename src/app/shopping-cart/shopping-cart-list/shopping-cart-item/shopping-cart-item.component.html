@@ -1,0 +1,50 @@
+<div class="card px-2 w-100">
+  <img class="card-img-top" src="{{product.imageLink}}" alt="Image of {{product.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.description}}</p>
+
+    <ul class="pagination">
+      <li class="page-item">
+        <button type="button"
+                class="btn btn-secondary"
+                title="Decrease Amount"
+                (click)="decreaseAmount()">
+          <fa-icon [icon]="faMinus"></fa-icon>
+        </button>
+      </li>
+      <li class="page-item">
+        <input class="page-link text-center" type="text" value="{{product.amount}}" disabled>
+      </li>
+      <li class="page-item">
+        <button type="button"
+                class="btn btn-secondary"
+                title="Decrease Amount"
+                (click)="increaseAmount()">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+      </li>
+    </ul>
+
+      <div class="card-bottom d-flex justify-content-between">
+        <div class="">
+          <button type="button"
+                  class="btn btn-secondary"
+                  title="Remove Item"
+                  (click)="remove()">
+            <fa-icon [icon]="faTrashAlt"></fa-icon>
+          </button>
+          <button type="button"
+                  class="btn btn-secondary"
+                  title="Add to Whishlist">
+            <fa-icon [icon]="faHeart"></fa-icon>
+          </button>
+        </div>
+
+        <h5>{{product.price * product.amount | currency}}</h5>
+      </div>
+
+  </div>
+</div>
+
+<hr/>

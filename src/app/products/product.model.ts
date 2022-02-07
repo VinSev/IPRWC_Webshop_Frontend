@@ -4,46 +4,55 @@ export class Product {
               private _description: string,
               private _price: number,
               private _imageLink: string,
-              private _id?: number) {
+              private _id?: number,
+              private _amount?: number) {
   }
 
-  get name(): string {
+  public get name(): string {
     return this._name;
   }
 
-  set name(value: string) {
+  public set name(value: string) {
     this._name = value;
   }
 
-  get description(): string {
+  public get description(): string {
     return this._description;
   }
 
-  set description(value: string) {
+  public set description(value: string) {
     this._description = value;
   }
 
-  get price(): number {
+  public get price(): number {
     return this._price;
   }
 
-  set price(value: number) {
+  public set price(value: number) {
     this._price = value;
   }
 
-  get imageLink(): string {
+  public get imageLink(): string {
     return this._imageLink;
   }
 
-  set imageLink(value: string) {
+  public set imageLink(value: string) {
     this._imageLink = value;
   }
 
-  get id(): number {
+  public get id(): number {
     return <number>this._id;
   }
 
-  set id(value: number) {
+  public set id(value: number) {
     this._id = value;
+  }
+
+  public get amount(): number {
+    return <number>this._amount;
+  }
+
+  public set amount(value: number) {
+    this._amount = value;
   }
 }

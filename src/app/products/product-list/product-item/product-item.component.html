@@ -1,4 +1,4 @@
-<div class="card h-100">
+<div class="card h-100 px-2">
   <div class="card-img-container">
     <img class="card-img-top" src="{{product.imageLink}}" alt="Image of {{product.name}}">
 
@@ -15,7 +15,8 @@
       </button>
       <button type="button"
               class="btn btn-secondary mb-1"
-              title="Add to Cart">
+              title="Add to Cart"
+              (click)="shoppingCartService.add(product)">
         <fa-icon [icon]="faShoppingCart"></fa-icon>
       </button>
     </div>

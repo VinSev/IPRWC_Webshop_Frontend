@@ -1,0 +1,8 @@
+<div class="row">
+  <h2 class="py-4 font-weight-bold">Cart ({{shoppingCartService.getTotalAmountOfProducts()}} items)</h2>
+  <div class="col-11 col-md-12 col-lg-8 mb-lg-0 mb-5">
+    <div class="row" *ngFor="let product of products">
+      <app-shopping-cart-item [product]="product"></app-shopping-cart-item>
+   </div>
+  </div>
+</div>

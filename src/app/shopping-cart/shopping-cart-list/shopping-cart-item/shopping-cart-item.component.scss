@@ -1,0 +1,35 @@
+.card {
+  flex-direction: row;
+}
+
+.card img {
+  object-fit: contain;
+  height: auto;
+  width: 25%;
+}
+
+.page-item input.page-link {
+  width: 44px;
+  color: black;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+input:hover {
+  background: none;
+}
+
+.card-bottom {
+  margin-top: auto;
+}
+
+@media only screen and (max-width: 620px) {
+  .card {
+    flex-direction: column;
+  }
+  .card img {
+    width: auto;
+  }
+}
+
+

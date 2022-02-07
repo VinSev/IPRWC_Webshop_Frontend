@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'products',
     loadChildren: () => import("./products/products.module").then(m => m.ProductsModule)
   },
-  // { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'shopping-cart',
+    loadChildren: () => import("./shopping-cart/shopping-cart.module").then(m => m.ShoppingCartModule)
+  },
   { path: 'login',
     loadChildren: () => import("./authentication/authentication.module").then(m => m.AuthenticationModule),
     canActivate: [IsLoggedInGuard]

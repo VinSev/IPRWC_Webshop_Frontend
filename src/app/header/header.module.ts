@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HeaderComponent} from "./header.component";
 import {AppRoutingModule} from "../app-routing.module";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import {AppRoutingModule} from "../app-routing.module";
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class HeaderModule { }
