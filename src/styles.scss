@@ -7,14 +7,19 @@
   transition: 0.15s;
 }
 
+button:hover .fa-heart {
+  color: red !important;
+}
+
 @mixin button {
+
   button {
     background-color: white !important;
     width: 44px;
     transition: 0.3s !important;
     border: 1px solid darkgray !important;
     border-radius: 3px;
-    color: black !important;
+    color: black;
     text-align: center;
   }
 
@@ -25,9 +30,5 @@
   fa-icon {
     background-color: transparent;
     color: black;
-  }
-
-  button:hover .fa-heart {
-    color: red !important;
   }
 }
