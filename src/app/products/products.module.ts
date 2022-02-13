@@ -5,6 +5,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductItemComponent } from './product-list/product-item/product-item.component';
 import {RouterModule} from "@angular/router";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {FormsModule} from "@angular/forms";
+import { SearchPipe } from './search.pipe';
 
 
 
@@ -12,7 +14,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
   declarations: [
     ProductsComponent,
     ProductListComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    SearchPipe
   ],
     imports: [
         CommonModule,
@@ -23,7 +26,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
                 component: ProductsComponent
             }
         ]),
-        FontAwesomeModule
+        FontAwesomeModule,
+        FormsModule
     ]
 })
 export class ProductsModule { }

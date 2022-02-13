@@ -9,6 +9,8 @@ import {Subscription} from "rxjs";
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
+  public searchText: any;
+
   public products!: Product[];
   public subscription!: Subscription
 
