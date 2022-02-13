@@ -56,7 +56,13 @@ export class NotificationService {
     });
   }
 
-  public viewProduct(product: Product): void {
-    console.log("View Product")
+  public viewProduct(product: Product): Promise<SweetAlertResult> {
+    return Swal.fire({
+      title:  `${product.name} - $${product.price.toFixed(2)}`,
+      text: product.description,
+      imageUrl: product.imageLink,
+      imageAlt: `Image of ${product.name}`,
+      imageHeight: 200
+    });
   }
 }
