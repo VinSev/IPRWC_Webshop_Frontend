@@ -11,7 +11,8 @@
       </button>
       <button type="button"
               class="btn btn-secondary mb-1 button"
-              title="Add to Wishlist">
+              title="Add to Wishlist"
+              (click)="wishlistService.add(product)">
         <fa-icon [icon]="faHeart"></fa-icon>
       </button>
       <button type="button"
