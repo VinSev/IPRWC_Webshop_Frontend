@@ -1,6 +1,9 @@
 <div class="row">
-  <h2 class="py-4 font-weight-bold">Products ({{products?.length}} results)</h2>
-  <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-3 d-flex align-items-stretch" *ngFor="let product of products">
+  <div class="py-4 d-block d-sm-flex justify-content-between">
+    <h2 class="font-weight-bold">Products ({{products?.length}} results)</h2>
+    <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search">
+  </div>
+  <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-3 d-flex align-items-stretch" *ngFor="let product of products | search:searchText">
     <app-product-item [product]="product"></app-product-item>
   </div>
 </div>

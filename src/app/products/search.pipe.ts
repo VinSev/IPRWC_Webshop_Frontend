@@ -7,7 +7,7 @@ import {Product} from "./product.model";
 export class SearchPipe implements PipeTransform {
 
   public transform(value: Product[], searchText: string): Product[] {
-    if(value.length == 0 || searchText == null) {
+    if(value == null || value.length == 0 || searchText == null) {
       return value;
     }
     let products: Product[] = [];
