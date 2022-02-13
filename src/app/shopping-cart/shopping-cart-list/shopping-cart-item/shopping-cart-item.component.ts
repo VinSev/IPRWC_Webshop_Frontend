@@ -3,6 +3,7 @@ import {Product} from "../../../products/product.model";
 import {faMinus, faPlus, IconDefinition} from "@fortawesome/free-solid-svg-icons";
 import {faTrashAlt, faHeart} from "@fortawesome/free-regular-svg-icons";
 import {ShoppingCartService} from "../../shopping-cart.service";
+import {WishlistService} from "../../../wishlist/wishlist.service";
 
 @Component({
   selector: 'app-shopping-cart-item',
@@ -18,7 +19,12 @@ export class ShoppingCartItemComponent {
   @Input()
   public product!: Product;
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+  constructor(private shoppingCartService: ShoppingCartService,
+              private wishlistService: WishlistService) { }
+
+  public add(): void {
+    this.wishlistService.add(this.product);
+  }
 
   public increaseAmount(): void {
    this.shoppingCartService.add(this.product);
