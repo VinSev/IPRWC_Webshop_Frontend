@@ -30,7 +30,7 @@ export class WishlistService {
 
   public remove(product: Product) {
     let index: number = this.findIndex(product);
-    if(this.exists(index)) {
+    if(!this.exists(index)) {
       this.notificationService.toastrWarning("Product is not present in Wishlist");
       return;
     }

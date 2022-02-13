@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Product} from "../../products/product.model";
+import {WishlistService} from "../wishlist.service";
 
 @Component({
   selector: 'app-wishlist-list',
@@ -10,6 +11,6 @@ export class WishlistListComponent {
   @Input()
   public products!: Product[];
 
-  constructor() { }
+  constructor(public wishlistService: WishlistService) { }
 
 }

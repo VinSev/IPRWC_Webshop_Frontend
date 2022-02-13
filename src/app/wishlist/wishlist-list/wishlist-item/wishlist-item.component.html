@@ -1,1 +1,29 @@
-<p>wishlist-item works!</p>
+<div class="card px-2 w-100">
+  <img class="card-img-top" src="{{product.imageLink}}" alt="Image of {{product.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.description}}</p>
+
+    <div class="card-bottom d-flex justify-content-between">
+      <div>
+        <button type="button"
+                class="btn btn-secondary button"
+                title="Remove Item"
+                (click)="remove()">
+          <fa-icon [icon]="faTrashAlt"></fa-icon>
+        </button>
+        <button type="button"
+                class="btn btn-secondary button"
+                title="Add to Cart"
+                (click)="add()">
+          <fa-icon [icon]="faShoppingCart"></fa-icon>
+        </button>
+      </div>
+
+      <h5>{{product.price | currency}}</h5>
+    </div>
+
+  </div>
+</div>
+
+<hr/>

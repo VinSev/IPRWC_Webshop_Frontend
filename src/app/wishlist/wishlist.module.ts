@@ -4,6 +4,7 @@ import {RouterModule} from "@angular/router";
 import {WishlistComponent} from "./wishlist.component";
 import { WishlistListComponent } from './wishlist-list/wishlist-list.component';
 import { WishlistItemComponent } from './wishlist-list/wishlist-item/wishlist-item.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 
@@ -13,15 +14,16 @@ import { WishlistItemComponent } from './wishlist-list/wishlist-item/wishlist-it
     WishlistListComponent,
     WishlistItemComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: "",
-        pathMatch: "full",
-        component: WishlistComponent
-      }
-    ]),
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: "",
+                pathMatch: "full",
+                component: WishlistComponent
+            }
+        ]),
+        FontAwesomeModule,
+    ]
 })
 export class WishlistModule { }
