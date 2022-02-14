@@ -23,9 +23,8 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Observable<AuthResponse> {
-    let authRequest: AuthRequest = { email, password };
     return this.http
-      .post<AuthResponse>(environment.baseURL + "/auth/login", authRequest);
+      .post<AuthResponse>(`${environment.baseURL}/auth/login`, { email, password });
   }
 
   public register(email: string, password: string): Observable<User> {
@@ -54,11 +53,6 @@ export class AuthService {
     }
     return false;
   }
-}
-
-type AuthRequest = {
-  email: string,
-  password: string
 }
 
 type AuthResponse = {

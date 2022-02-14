@@ -1,0 +1,17 @@
+@import "src/styles.scss";
+@include button;
+
+form {
+  max-width: 480px;
+  margin: auto;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+@media only screen and (max-width: 480px) {
+  form {
+    max-width: 95vw;
+  }
+}

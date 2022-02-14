@@ -5,7 +5,7 @@ import {environment} from "../../environments/environment";
 import {Product} from "./product.model";
 
 @Injectable({
-  providedIn: 'platform'
+  providedIn: 'root'
 })
 export class ProductService {
 
