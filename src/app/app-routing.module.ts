@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {IsLoggedInGuard} from "./authentication/guard/is-logged-in.guard";
+import {AuthGuard} from "./authentication/guard/auth.guard";
 
 const routes: Routes = [
   { path: '',
@@ -20,7 +21,18 @@ const routes: Routes = [
     loadChildren: () => import("./authentication/authentication.module").then(m => m.AuthenticationModule),
     canActivate: [IsLoggedInGuard]
   },
-  // { path: '**', component: PageNotFoundComponent },
+  {
+    path: 'orders',
+    loadChildren: () => import("./orders/orders.module").then(m => m.OrdersModule),
+    canActivate: [AuthGuard]
+  },
+  { path: '**',
+    redirectTo: '404',
+    pathMatch: 'full'
+  },
+  { path: '404',
+    loadChildren: () => import("./error/error.module").then(m => m.ErrorModule),
+  },
 ];
 
 @NgModule({
