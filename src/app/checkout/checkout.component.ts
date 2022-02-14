@@ -20,8 +20,8 @@ export class CheckoutComponent {
 
   public checkout(streetName: string, houseNumber: number, postcode: string, placeName: string): void {
     let products: Product[] = this.shoppingCartService.products;
-    let order: Order = new Order(streetName, houseNumber, postcode, placeName, products, new Date().toISOString());
-    this.subscription = this.ordersService.create(order)
+    let dateLastUpdated: string = new Date().toISOString();
+    this.subscription = this.ordersService.create({streetName, houseNumber, postcode, placeName, products, dateLastUpdated})
       .subscribe();
   }
 
