@@ -32,7 +32,7 @@
               <p>{{shoppingCartService.getTotalPrice() | currency}}</p>
             </li>
           </ul>
-          <button class="button" [disabled]="products?.length == 0">Checkout</button>
+          <button class="button" [disabled]="products?.length == 0" routerLink="checkout">Checkout</button>
         </div>
       </div>
     </div>

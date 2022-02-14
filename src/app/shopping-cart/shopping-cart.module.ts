@@ -5,6 +5,7 @@ import {RouterModule} from "@angular/router";
 import { ShoppingCartListComponent } from './shopping-cart-list/shopping-cart-list.component';
 import { ShoppingCartItemComponent } from './shopping-cart-list/shopping-cart-item/shopping-cart-item.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {ShoppingCartRoutingModule} from "./shopping-cart-routing.module";
 
 
 
@@ -16,6 +17,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
   ],
     imports: [
         CommonModule,
+        ShoppingCartRoutingModule,
         RouterModule.forChild([
             {
                 path: "",
@@ -23,7 +25,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
                 component: ShoppingCartComponent
             }
         ]),
-        FontAwesomeModule,
+        FontAwesomeModule
     ]
 })
 export class ShoppingCartModule { }
