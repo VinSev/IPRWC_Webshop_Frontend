@@ -8,13 +8,14 @@
              class="form-control mb-2"
              placeholder="Street Name"
              ngModel name="streetName"
-             required email #streetName="ngModel">
+             required #streetName="ngModel">
 
       <label for="houseNumber" class="visually-hidden">House Number</label>
       <input type="number"
              id="houseNumber"
              class="form-control mb-2"
              placeholder="House Number"
+             pattern="^[0-9]\d*$"
              ngModel name="houseNumber"
              required #houseNumber="ngModel">
 
@@ -23,7 +24,7 @@
              id="postcode"
              class="form-control mb-2"
              placeholder="Postcode"
-             pattern="/^\d{4} ?[a-z]{2}$/i"
+             pattern="^[1-9][0-9]{3} ?(?!sa|sd|ss)[A-Za-z]{2}$"
              ngModel name="postcode"
              required #postcode="ngModel">
 
