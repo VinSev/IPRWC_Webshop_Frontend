@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-  public products!: Product[];
+  public products: Product[] = [];
   public subscription!: Subscription
 
   constructor(private productService: ProductService) { }

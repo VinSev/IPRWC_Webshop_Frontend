@@ -4,6 +4,7 @@ import {RouterModule} from "@angular/router";
 import {OrdersComponent} from "./orders.component";
 import {OrderItemComponent} from "./order-list/order-item/order-item.component";
 import {OrderListComponent} from "./order-list/order-list.component";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 
@@ -13,15 +14,16 @@ import {OrderListComponent} from "./order-list/order-list.component";
     OrderListComponent,
     OrderItemComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: "",
-        pathMatch: "full",
-        component: OrdersComponent
-      }
-    ])
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: "",
+                pathMatch: "full",
+                component: OrdersComponent
+            }
+        ]),
+        FontAwesomeModule
+    ]
 })
 export class OrdersModule { }

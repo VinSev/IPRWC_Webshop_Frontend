@@ -1,1 +1,21 @@
-<p>order-item works!</p>
+<div class="card px-2 w-100">
+  <div class="card-body">
+    <h5 class="card-title">Order #{{order.id}}</h5>
+
+    <div class="card-bottom d-flex justify-content-between">
+      <div>
+        <button type="button"
+                class="btn btn-secondary button"
+                title="Remove Order"
+                (click)="remove()">
+          <fa-icon [icon]="faTrashAlt"></fa-icon>
+        </button>
+      </div>
+
+      <h5>Total price: {{getTotalPrice()}}</h5>
+    </div>
+
+  </div>
+</div>
+
+<hr/>

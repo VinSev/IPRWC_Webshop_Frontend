@@ -1,0 +1,29 @@
+@import "src/styles.scss";
+@include button;
+
+.card {
+  flex-direction: row;
+}
+
+.page-item input.page-link {
+  width: 88px;
+  color: black;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+input:hover {
+  background: none;
+}
+
+.card-bottom {
+  margin-top: auto;
+}
+
+@media only screen and (max-width: 620px) {
+  .card {
+    flex-direction: column;
+  }
+}
+
+

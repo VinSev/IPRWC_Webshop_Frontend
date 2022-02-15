@@ -10,5 +10,5 @@ export class ProductListComponent{
   public searchText: any;
 
   @Input()
-  public products!: Product[];
+  public products: Product[] = [];
 }
