@@ -2,7 +2,10 @@
   <div class="card-body">
     <h5 class="card-title">Order #{{order.id}}</h5>
     <div class="card-text" *ngFor="let product of order.products">
-      <p>{{product.name}} x{{product.amount}}</p>
+      <div class="d-flex justify-content-between">
+        <p>{{product.name}} x{{product.amount}}</p>
+        <p>{{product.price * product.amount | currency}}</p>
+      </div>
     </div>
 
     <div class="card-bottom d-flex justify-content-between">
@@ -15,7 +18,7 @@
         </button>
       </div>
 
-      <h5>Total price: {{getTotalPrice() | currency}}</h5>
+      <h5 class="text-decoration-line-over">Total price: {{getTotalPrice() | currency}}</h5>
     </div>
 
   </div>

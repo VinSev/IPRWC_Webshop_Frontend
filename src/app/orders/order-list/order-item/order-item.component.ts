@@ -28,6 +28,15 @@ export class OrderItemComponent {
   }
 
   public remove(): void {
+    this.notificationService.confirmationDelete("Are you sure you want to delete this order?", "Delete Order")
+      .then(result => {
+        if(result.value) {
+          this.confirmedRemoval();
+        }
+      });
+  }
+
+  private confirmedRemoval(): void {
     this.ordersService.delete(this.order)
       .subscribe({
         complete: () => {
