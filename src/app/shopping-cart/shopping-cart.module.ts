@@ -6,6 +6,7 @@ import { ShoppingCartListComponent } from './shopping-cart-list/shopping-cart-li
 import { ShoppingCartItemComponent } from './shopping-cart-list/shopping-cart-item/shopping-cart-item.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {ShoppingCartRoutingModule} from "./shopping-cart-routing.module";
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 
 
@@ -15,17 +16,18 @@ import {ShoppingCartRoutingModule} from "./shopping-cart-routing.module";
     ShoppingCartListComponent,
     ShoppingCartItemComponent
   ],
-    imports: [
-        CommonModule,
-        ShoppingCartRoutingModule,
-        RouterModule.forChild([
-            {
-                path: "",
-                pathMatch: "full",
-                component: ShoppingCartComponent
-            }
-        ]),
-        FontAwesomeModule
-    ]
+  imports: [
+    CommonModule,
+    ShoppingCartRoutingModule,
+    RouterModule.forChild([
+      {
+        path: "",
+        pathMatch: "full",
+        component: ShoppingCartComponent
+      }
+    ]),
+    FontAwesomeModule,
+    LazyLoadImageModule
+  ]
 })
 export class ShoppingCartModule { }

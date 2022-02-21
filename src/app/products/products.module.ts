@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {FormsModule} from "@angular/forms";
 import { SearchPipe } from './search.pipe';
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 
 
@@ -27,7 +28,8 @@ import { SearchPipe } from './search.pipe';
             }
         ]),
         FontAwesomeModule,
-        FormsModule
+        FormsModule,
+        LazyLoadImageModule
     ]
 })
 export class ProductsModule { }

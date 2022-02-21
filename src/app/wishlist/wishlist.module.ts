@@ -5,6 +5,7 @@ import {WishlistComponent} from "./wishlist.component";
 import { WishlistListComponent } from './wishlist-list/wishlist-list.component';
 import { WishlistItemComponent } from './wishlist-list/wishlist-item/wishlist-item.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 
 
@@ -24,6 +25,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
             }
         ]),
         FontAwesomeModule,
+        LazyLoadImageModule,
     ]
 })
 export class WishlistModule { }
