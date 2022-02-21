@@ -38,7 +38,7 @@
                   class="btn btn-secondary button"
                   title="Add to Wishlist"
                   (click)="add()">
-            <fa-icon [icon]="faHeart"></fa-icon>
+            <fa-icon [icon]="faHeart" [style.color]="wishlistService.productExists(product) ? 'red' : 'black'"></fa-icon>
           </button>
         </div>
 
