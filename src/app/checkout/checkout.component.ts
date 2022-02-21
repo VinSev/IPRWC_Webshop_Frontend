@@ -22,7 +22,14 @@ export class CheckoutComponent {
     let products: Product[] = this.shoppingCartService.products;
     let dateLastUpdated: string = new Date().toISOString();
     this.subscription = this.ordersService.create({streetName, houseNumber, postcode, placeName, products, dateLastUpdated})
-      .subscribe();
+      .subscribe({
+        complete: () => {
+          this.notificationService.toastrSuccess("Order Completed");
+        },
+        error: () => {
+          this.notificationService.toastrWarning("Order could not be submitted");
+        }
+      });
   }
 
   public ngOnDestroy(): void {
