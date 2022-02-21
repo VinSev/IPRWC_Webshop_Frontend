@@ -3,6 +3,7 @@ import {Order} from "../../order.model";
 import {IconDefinition} from "@fortawesome/free-solid-svg-icons";
 import {faTrashAlt} from "@fortawesome/free-regular-svg-icons";
 import {OrdersService} from "../../orders.service";
+import {NotificationService} from "../../../notification/notification.service";
 
 @Component({
   selector: 'app-order-item',
@@ -15,11 +16,8 @@ export class OrderItemComponent {
   @Input()
   public order!: Order;
 
-  constructor(private ordersService: OrdersService) { }
-
-  public remove(): void {
-
-  }
+  constructor(private ordersService: OrdersService,
+              private notificationService: NotificationService) { }
 
   public getTotalPrice(): number {
     let totalPrice: number = 0;
@@ -27,5 +25,19 @@ export class OrderItemComponent {
       totalPrice += product.price * product.amount;
     }
     return totalPrice;
+  }
+
+  public remove(): void {
+    this.ordersService.delete(this.order)
+      .subscribe({
+        complete: () => {
+          let index: number = this.ordersService.orders.indexOf(this.order);
+          this.ordersService.orders.splice(index, 1);
+          this.notificationService.toastrInfo("Order removed");
+        },
+        error: () => {
+          this.notificationService.toastrInfo("Something went wrong");
+        }
+      });
   }
 }

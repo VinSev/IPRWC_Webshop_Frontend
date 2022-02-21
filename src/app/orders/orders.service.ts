@@ -9,8 +9,17 @@ import {Product} from "../products/product.model";
   providedIn: 'root'
 })
 export class OrdersService {
+  private _orders: Order[] = [];
 
   constructor(private http: HttpClient) { }
+
+  public get orders(): Order[] {
+    return this._orders;
+  }
+
+  public set orders(value: Order[]) {
+    this._orders = value;
+  }
 
   public getAll(): Observable<Order[]> {
     return this.http
