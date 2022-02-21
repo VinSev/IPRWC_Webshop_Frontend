@@ -19,23 +19,7 @@ export class ShoppingCartItemComponent {
   @Input()
   public product!: Product;
 
-  constructor(private shoppingCartService: ShoppingCartService,
+  constructor(public shoppingCartService: ShoppingCartService,
               public wishlistService: WishlistService) { }
-
-  public add(): void {
-    this.wishlistService.toggle(this.product);
-  }
-
-  public increaseAmount(): void {
-   this.shoppingCartService.add(this.product);
-  }
-
-  public decreaseAmount(): void {
-    this.shoppingCartService.decrease(this.product);
-  }
-
-  public remove(): void {
-    this.shoppingCartService.remove(this.product);
-  }
 
 }
