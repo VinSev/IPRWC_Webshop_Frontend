@@ -9,6 +9,10 @@
   transition: 0.33s;
 }
 
+.card-img-container {
+  height: 80%;
+}
+
 .card-img-container:hover .overlay {
   opacity: 1;
   margin-left: 5%;
