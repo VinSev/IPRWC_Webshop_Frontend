@@ -20,10 +20,10 @@ export class ShoppingCartItemComponent {
   public product!: Product;
 
   constructor(private shoppingCartService: ShoppingCartService,
-              private wishlistService: WishlistService) { }
+              public wishlistService: WishlistService) { }
 
   public add(): void {
-    this.wishlistService.add(this.product);
+    this.wishlistService.toggle(this.product);
   }
 
   public increaseAmount(): void {

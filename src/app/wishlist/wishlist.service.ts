@@ -18,14 +18,15 @@ export class WishlistService {
     this._products = value;
   }
 
-  public add(product: Product) {
+  public toggle(product: Product) {
     let index: number = this.findIndex(product);
     if(this.exists(index)) {
-      this.notificationService.toastrWarning("Product already present in Wishlist");
-      return;
+      this.notificationService.toastrInfo("Product removed from Wishlist");
+      this._products.splice(index, 1);
+    } else {
+      this.notificationService.toastrInfo("Product added to Wishlist");
+      this._products.push(product);
     }
-    this.notificationService.toastrInfo("Product added to Wishlist");
-    this._products.push(product);
   }
 
   public remove(product: Product) {
@@ -56,5 +57,10 @@ export class WishlistService {
 
   private findIndex(product: Product) {
     return this._products.findIndex((value: Product) => value.name == product.name);
+  }
+
+  public productExists(product: Product): boolean {
+    let index: number = this.findIndex(product);
+    return this.exists(index);
   }
 }
