@@ -8,16 +8,18 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {FormsModule} from "@angular/forms";
 import { SearchPipe } from './search.pipe';
 import {LazyLoadImageModule} from "ng-lazyload-image";
-
-
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import {ProductEditItemComponent} from "./product-edit/product-edit-item/product-item.component";
 
 @NgModule({
-  declarations: [
-    ProductsComponent,
-    ProductListComponent,
-    ProductItemComponent,
-    SearchPipe
-  ],
+    declarations: [
+        ProductsComponent,
+        ProductListComponent,
+        ProductItemComponent,
+        SearchPipe,
+        ProductEditComponent,
+        ProductEditItemComponent
+    ],
     imports: [
         CommonModule,
         RouterModule.forChild([
@@ -26,6 +28,13 @@ import {LazyLoadImageModule} from "ng-lazyload-image";
                 pathMatch: "full",
                 component: ProductsComponent
             }
+        ]),
+        RouterModule.forChild([
+          {
+            path: "edit",
+            pathMatch: "full",
+            component: ProductEditComponent
+          }
         ]),
         FontAwesomeModule,
         FormsModule,
