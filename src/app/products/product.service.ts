@@ -16,13 +16,18 @@ export class ProductService {
       .get<Product[]>(`${environment.baseURL}/products`);
   }
 
-  public add(product: Product): void {
-    this.http
+  public add(product: Product): Observable<Product> {
+    return this.http
       .post<Product>(`${environment.baseURL}/products`, product);
   }
 
-  public delete(product: Product): void {
-    this.http
+  public delete(product: Product): Observable<Product> {
+    return this.http
       .delete<Product>(`${environment.baseURL}/products`, { body: product });
+  }
+
+  public update(product: Product): Observable<Product> {
+    return this.http
+      .put<Product>(`${environment.baseURL}/products`, product);
   }
 }

@@ -1,10 +1,69 @@
-<div class="card px-2 w-100">
+<div class="card px-2 w-100" [ngSwitch]="isEditing">
   <img class="card-img-top" lazyLoad="{{product.imageLink}}" alt="Image of {{product.name}}">
-  <div class="card-body">
+  <form *ngSwitchCase="true" class="card-body"
+        (ngSubmit)="save(name.value, description.value, price.value)" #productForm="ngForm">
+    <input type="text"
+           id="productName"
+           class="card-title form-control mb-2"
+           [(ngModel)]="product.name"
+           ngModel
+           name="productName"
+           required #name="ngModel">
+    <input type="text"
+           id="productDescription"
+           class="card-text form-control mb-2"
+           [(ngModel)]="product.description"
+           ngModel
+           name="productDescription"
+           required #description="ngModel">
+    <input type="number"
+           id="productPrice"
+           class="form-control mb-2"
+           [(ngModel)]="product.price"
+           ngModel
+           name="productPrice"
+           required #price="ngModel">
+
+    <div class="card-bottom justify-content-between">
+      <div>
+        <button type="submit"
+                class="btn btn-secondary form-button button"
+                title="Save"
+                [disabled]="productForm.invalid"
+        >
+          <fa-icon [icon]="faSave"></fa-icon>
+        </button>
+        <button type="button"
+                class="btn btn-secondary button"
+                title="Remove"
+                >
+          <fa-icon [icon]="faTrashAlt"></fa-icon>
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+  <div *ngSwitchCase="false" class="card-body">
     <h5 class="card-title">{{product.name}}</h5>
     <p class="card-text">{{product.description}}</p>
 
     <div class="card-bottom d-flex justify-content-between">
+      <div>
+        <button type="button"
+                class="btn btn-secondary button"
+                title="Edit"
+                (click)="isEditing = true"
+        >
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+        <button type="button"
+                class="btn btn-secondary button"
+                title="Remove"
+        >
+          <fa-icon [icon]="faTrashAlt"></fa-icon>
+        </button>
+      </div>
       <h5>{{product.price | currency}}</h5>
     </div>
 
