@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Product} from "../../product.model";
-import {IconDefinition} from "@fortawesome/free-solid-svg-icons";
+import {IconDefinition, faBan} from "@fortawesome/free-solid-svg-icons";
 import {faTrashAlt, faEdit, faSave} from "@fortawesome/free-regular-svg-icons";
 import {ProductService} from "../../product.service";
 import {NotificationService} from "../../../notification/notification.service";
@@ -15,6 +15,7 @@ export class ProductEditItemComponent {
   public faTrashAlt: IconDefinition = faTrashAlt;
   public faEdit: IconDefinition = faEdit;
   public faSave: IconDefinition = faSave;
+  public faBan: IconDefinition = faBan
 
   private subscription!: Subscription;
 
@@ -45,6 +46,14 @@ export class ProductEditItemComponent {
       });
 
     this.isEditing = false;
+  }
+
+  public add(): void {
+
+  }
+
+  public delete(): void {
+
   }
 
   public ngOnDestroy(): void {
