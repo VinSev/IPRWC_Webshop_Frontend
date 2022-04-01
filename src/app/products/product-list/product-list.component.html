@@ -3,6 +3,7 @@
     <h2 class="font-weight-bold">Products ({{products?.length}} results)</h2>
     <div class="d-flex">
       <button
+        *ngIf="authService.hasAuthority('Admin')"
         type="button"
         class="btn btn-secondary button"
         title="Edit Products"

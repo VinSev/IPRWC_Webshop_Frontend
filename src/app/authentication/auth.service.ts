@@ -29,11 +29,12 @@ export class AuthService {
 
   public register(email: string, password: string): Observable<User> {
     return this.http
-      .post<User>(`${environment.baseURL}/users/register`, { email, password })
+      .post<User>(`${environment.baseURL}/users/register`, { email, password });
   }
 
   public logout(): void {
     this.notificationService.toastrSuccess("Logout successful");
+    this._user = User._emptyUser;
     localStorage.removeItem("token");
   }
 
