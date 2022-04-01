@@ -16,7 +16,7 @@ export class ProductService {
       .get<Product[]>(`${environment.baseURL}/products`);
   }
 
-  public add(product: Product): Observable<Product> {
+  public add(product: ProductRequest): Observable<Product> {
     return this.http
       .post<Product>(`${environment.baseURL}/products`, product);
   }
@@ -30,4 +30,11 @@ export class ProductService {
     return this.http
       .put<Product>(`${environment.baseURL}/products`, product);
   }
+}
+
+type ProductRequest = {
+  name: string,
+  description: string,
+  price: number,
+  imageLink: string
 }

@@ -5,6 +5,7 @@ import {Subscription} from "rxjs";
 import {ShoppingCartService} from "../shopping-cart/shopping-cart.service";
 import {Order} from "../orders/order.model";
 import {Product} from "../products/product.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-checkout',
@@ -16,7 +17,8 @@ export class CheckoutComponent {
 
   constructor(private notificationService: NotificationService,
               private ordersService: OrdersService,
-              private shoppingCartService: ShoppingCartService) { }
+              private shoppingCartService: ShoppingCartService,
+              private router: Router) { }
 
   public checkout(streetName: string, houseNumber: number, postcode: string, placeName: string): void {
     let products: Product[] = this.shoppingCartService.products;
@@ -25,6 +27,8 @@ export class CheckoutComponent {
       .subscribe({
         complete: () => {
           this.notificationService.toastrSuccess("Order Completed");
+          this.shoppingCartService.products = [];
+          this.router.navigate(["shopping-cart"])
         },
         error: () => {
           this.notificationService.toastrWarning("Order could not be submitted");

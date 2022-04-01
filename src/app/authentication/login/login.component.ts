@@ -21,7 +21,6 @@ export class LoginComponent implements OnDestroy {
     this.subscription = this.authService.login(email, password)
       .subscribe({
         next: response => {
-          console.log(response.user)
           this.authService.user = response.user;
           localStorage.setItem("token", response.token);
           this.router.navigate(["/products"]);
