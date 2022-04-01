@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage",
@@ -49,7 +49,7 @@
     "typescript": "~4.5.2"
   },
   "engines": {
-    "node": "12.18.2",
-    "npm": "6.14.5"
+    "node": "16.13",
+    "npm": "8.3.0"
   }
 }

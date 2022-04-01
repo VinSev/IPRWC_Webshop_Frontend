@@ -27,9 +27,9 @@ export class AuthService {
       .post<AuthResponse>(`${environment.baseURL}/auth/login`, { email, password });
   }
 
-  public register(email: string, password: string): Observable<User> {
+  public register(email: string, password: string): Observable<AuthResponse> {
     return this.http
-      .post<User>(`${environment.baseURL}/users/register`, { email, password });
+      .post<AuthResponse>(`${environment.baseURL}/users/register`, { email, password });
   }
 
   public logout(): void {

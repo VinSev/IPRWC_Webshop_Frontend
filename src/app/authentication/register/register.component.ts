@@ -19,7 +19,7 @@ export class RegisterComponent implements OnDestroy {
     this.subscription = this.authService.register(email, password)
       .subscribe({
         next: response => {
-          this.authService.user = response;
+          this.authService.user = response.user;
           this.notificationService.toastrSuccess("Registration successful");
         },
         error: () => {
