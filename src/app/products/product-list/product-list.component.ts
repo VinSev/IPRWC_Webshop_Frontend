@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {Product} from "../product.model";
-import {Router} from "@angular/router";
 import {IconDefinition} from "@fortawesome/free-solid-svg-icons";
 import {faEdit} from "@fortawesome/free-regular-svg-icons";
 import {AuthService} from "../../authentication/auth.service";
@@ -14,8 +13,7 @@ export class ProductListComponent{
   public faEdit: IconDefinition = faEdit;
   public searchText: any;
 
-  constructor(public router: Router,
-              public authService: AuthService) {
+  constructor(public authService: AuthService) {
   }
 
   @Input()
