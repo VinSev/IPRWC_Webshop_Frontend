@@ -23,6 +23,10 @@ export class ProductEditComponent {
       });
   }
 
+  public add(name: string, description: string, price: number, image: string) {
+
+  }
+
   public ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

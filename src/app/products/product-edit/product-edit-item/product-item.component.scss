@@ -26,6 +26,10 @@ input:hover {
   margin-top: auto;
 }
 
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
 @media only screen and (max-width: 620px) {
   .card {
     flex-direction: column;
