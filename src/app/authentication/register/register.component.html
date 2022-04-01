@@ -1,5 +1,5 @@
 <div class="col-md4 text-center">
-  <form (ngSubmit)="register(register_email.value, register_password.value)" #registerForm="ngForm">
+  <form (ngSubmit)="register(register_email.value, register_password.value, registerForm)" #registerForm="ngForm">
     <h4 class="mt-5 mb-3">Register</h4>
     <label for="emailAddress" class="visually-hidden">Email Address</label>
     <input type="email"
