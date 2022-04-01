@@ -20,6 +20,8 @@ export class ProductEditItemComponent {
   private subscription!: Subscription;
 
   @Input()
+  public products!: Product[]
+  @Input()
   public product!: Product;
 
   public isEditing: boolean = false;
@@ -32,8 +34,6 @@ export class ProductEditItemComponent {
     this.product.name = name;
     this.product.description = description;
     this.product.price = price;
-
-    console.log("save")
 
     this.subscription = this.productService.update(this.product)
       .subscribe({
@@ -53,7 +53,34 @@ export class ProductEditItemComponent {
   }
 
   public delete(): void {
+    let index: number = this.findIndex(this.product);
+    if(!this.exists(index)) {
+      this.notificationService.toastrWarning("Products does not exist");
+      return;
+    }
+    this.notificationService.confirmationDelete("Are you sure you want to delete this product?", "Delete Product")
+      .then(result => {
+        if(result.value) {
+          this.subscription = this.productService.delete(this.product)
+            .subscribe({
+              complete: () => {
+                this.notificationService.toastrInfo("Product Removed");
+                this.products.splice(index, 1);
+              },
+              error: () => {
+                this.notificationService.toastrError("Something went wrong, please try again");
+              }
+            });
+        }
+      });
+  }
 
+  private exists(index: number) {
+    return index != -1;
+  }
+
+  private findIndex(product: Product) {
+    return this.products.findIndex((value: Product) => value.name == product.name);
   }
 
   public ngOnDestroy(): void {

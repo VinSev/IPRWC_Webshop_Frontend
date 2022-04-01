@@ -10,6 +10,7 @@ import { SearchPipe } from './search.pipe';
 import {LazyLoadImageModule} from "ng-lazyload-image";
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import {ProductEditItemComponent} from "./product-edit/product-edit-item/product-item.component";
+import {IsAuthorizedGuard} from "../authentication/guard/is-authorized.guard";
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import {ProductEditItemComponent} from "./product-edit/product-edit-item/product
           {
             path: "edit",
             pathMatch: "full",
-            component: ProductEditComponent
+            component: ProductEditComponent,
+            canActivate: [IsAuthorizedGuard]
           }
         ]),
         FontAwesomeModule,
