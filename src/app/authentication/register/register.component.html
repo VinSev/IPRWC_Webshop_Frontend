@@ -1,5 +1,5 @@
 <div class="col-md4 text-center">
-  <form (ngSubmit)="register(email.value, password.value)" #registerForm="ngForm">
+  <form (ngSubmit)="register(register_email.value, register_password.value)" #registerForm="ngForm">
     <h4 class="mt-5 mb-3">Register</h4>
     <label for="emailAddress" class="visually-hidden">Email Address</label>
     <input type="email"
@@ -7,7 +7,7 @@
            class="form-control mb-2"
            placeholder="user@gmail.com"
            ngModel name="email"
-           required email #email="ngModel">
+           required email #register_email="ngModel">
 
     <label for="password" class="visually-hidden">Password</label>
     <input type="password"
@@ -15,7 +15,7 @@
            class="form-control mb-2"
            placeholder="password"
            ngModel name="password"
-           required #password="ngModel">
+           required #register_password="ngModel">
 
     <div class="mt-3">
       <button type="submit"
