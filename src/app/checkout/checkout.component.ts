@@ -3,7 +3,6 @@ import {NotificationService} from "../notification/notification.service";
 import {OrdersService} from "../orders/orders.service";
 import {Subscription} from "rxjs";
 import {ShoppingCartService} from "../shopping-cart/shopping-cart.service";
-import {Order} from "../orders/order.model";
 import {Product} from "../products/product.model";
 import {Router} from "@angular/router";
 

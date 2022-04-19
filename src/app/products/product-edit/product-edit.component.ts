@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Product} from "../product.model";
 import {Subscription} from "rxjs";
 import {ProductService} from "../product.service";
