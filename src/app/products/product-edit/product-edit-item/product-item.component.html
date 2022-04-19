@@ -1,7 +1,7 @@
 <div class="card px-2 w-100" [ngSwitch]="isEditing">
   <img class="card-img-top" lazyLoad="{{product.imageLink}}" alt="Image of {{product.name}}">
   <form *ngSwitchCase="true" class="card-body"
-        (ngSubmit)="save(name.value, description.value, price.value)" #productForm="ngForm">
+        (ngSubmit)="save(name.value, description.value, price.value, imageLink.value)" #productForm="ngForm">
     <input type="text"
            id="productName"
            class="card-title form-control mb-2"
@@ -23,6 +23,13 @@
            ngModel
            name="productPrice"
            required #price="ngModel">
+    <input type="text"
+           id="productImage"
+           class="form-control mb-2"
+           [(ngModel)]="product.imageLink"
+           ngModel
+           name="productImage"
+           required #imageLink="ngModel">
 
     <div class="card-bottom justify-content-between">
       <div>

@@ -30,10 +30,11 @@ export class ProductEditItemComponent {
               private notificationService: NotificationService) {
   }
 
-  public save(name: string, description: string, price: number): void {
+  public save(name: string, description: string, price: number, imageLink: string): void {
     this.product.name = name;
     this.product.description = description;
     this.product.price = price;
+    this.product.imageLink = imageLink;
 
     this.subscription = this.productService.update(this.product)
       .subscribe({
